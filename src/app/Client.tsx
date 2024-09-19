@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useBearStore } from "@/store/test-store";
 import React from "react";
 
@@ -10,17 +11,14 @@ export const Client: React.FC<Props> = () => {
 
     return (
         <div>
-            <button
-                className="bg-green-500 p-2 rounded"
-                onClick={increasePopulation}
-            >
+            <Button onClick={increasePopulation}>
                 Increase bears population
-            </button>
+            </Button>
             <p>{bears}</p>
 
-            <button className="bg-red-500 p-2 rounded" onClick={removeAllBears}>
+            <Button variant={"destructive"} onClick={removeAllBears}>
                 Remove all bears
-            </button>
+            </Button>
         </div>
     );
 };
