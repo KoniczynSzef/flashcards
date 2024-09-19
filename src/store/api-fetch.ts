@@ -21,8 +21,8 @@ export const useAPIStore = create<APIStore>((set) => ({
             }
         >(API_URL, body, {
             headers: {
-                // TODO: Add API key here
-                // TODO: Add API host here
+                // TODO: Add API key to .env file
+                // TODO: Add API address to .env file
                 "Content-Type": "application/json",
             },
         });
