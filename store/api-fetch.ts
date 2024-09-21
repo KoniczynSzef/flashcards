@@ -1,4 +1,4 @@
-import { APIResponse, APIStore } from "@/types/api/api-response";
+import { APIResponse, APIStore } from "../types/api/api-response";
 import axios from "axios";
 import { create } from "zustand";
 

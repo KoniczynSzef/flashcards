@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useAPIStore } from "@/store/api-fetch";
+import { Button } from "../components/ui/button";
+import { useAPIStore } from "../store/api-fetch";
 import React from "react";
 
 type Props = object & {};

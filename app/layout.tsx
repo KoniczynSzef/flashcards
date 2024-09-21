@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Inter } from "next/font/google";
-import { Providers } from "@/providers/Providers";
+import { Providers } from "../providers/Providers";
 
 export const metadata: Metadata = {
     title: "Create Next App",
