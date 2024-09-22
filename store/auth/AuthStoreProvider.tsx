@@ -10,16 +10,15 @@ type Props = object & {
 
 export const AuthStoreProvider: React.FC<Props> = (props) => {
     const { user } = useUser();
-    const { setCurrentUser } = useAppAuthStore();
+    const { setCurrentUser, setIsAuthenticating } = useAppAuthStore();
 
     React.useEffect(() => {
-        console.log("rendered AuthStoreProvider");
-
         if (!user) {
             return;
         }
 
         setCurrentUser(user);
-    }, [user, setCurrentUser]);
+        setIsAuthenticating(false);
+    }, [user, setCurrentUser, setIsAuthenticating]);
     return props.children;
 };
