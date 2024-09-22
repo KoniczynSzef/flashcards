@@ -1,8 +1,7 @@
 import React from "react";
-import { Client } from "./Client";
 import { currentUser } from "@clerk/nextjs/server";
-import { Unauthenticated } from "../components/client/Unauthenticated";
-import { Authenticated } from "../components/client/Authenticated";
+import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { Button } from "../components/ui/button";
 
 type Props = object & {};
 
@@ -12,15 +11,19 @@ const page: React.FC<Props> = async () => {
     if (!user) {
         return (
             <div className="p-24">
-                <Unauthenticated />
+                <SignInButton>
+                    <Button>Sign in</Button>
+                </SignInButton>
             </div>
         );
     }
 
     return (
         <div className="p-24">
-            <Client />
-            <Authenticated />
+            <h1>Welcome {user.fullName}</h1>
+            <SignOutButton>
+                <Button variant={"destructive"}>Sign out</Button>
+            </SignOutButton>
         </div>
     );
 };
