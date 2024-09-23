@@ -1,10 +1,10 @@
 import React from "react";
-import { Profile } from "../components/auth/Profile";
+import { AuthWrapper } from "../components/auth/AuthWrapper";
 
 type Props = object & {};
 
 const page: React.FC<Props> = async () => {
-    return <Profile />;
+    return <AuthWrapper />;
 };
 
 export default page;

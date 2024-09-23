@@ -8,47 +8,44 @@ import { SignOutButton, UserButton } from "@clerk/nextjs";
 
 type Props = object & {};
 
+export function ProfileWrapper(props: { children: React.ReactNode }) {
+    return (
+        <div className="flex items-center gap-8 w-full justify-center">
+            {props.children}
+        </div>
+    );
+}
+
 export const Profile: React.FC<Props> = () => {
-    const store = useAppAuthStore();
+    const { authState } = useAppAuthStore();
 
-    if (store.authState === "loading" || store.isAuthenticating) {
-        return <p>Loading...</p>;
-    }
-
-    if (store.authState === "guest") {
+    if (authState === "guest") {
         return (
-            <div>
-                <h1 className="text-3xl font-semibold">
-                    You are viewing this page as a guest.
-                </h1>
-                <div className="flex items-center gap-8 my-4">
-                    <Link href="/sign-up">
-                        <Button role="link" tabIndex={-1} variant={"outline"}>
-                            Sign up
-                        </Button>
-                    </Link>
+            <>
+                <Link href="/sign-up">
+                    <Button role="link" tabIndex={-1} variant={"outline"}>
+                        Sign up
+                    </Button>
+                </Link>
 
-                    <Link href="/sign-in">
-                        <Button role="link" tabIndex={-1}>
-                            Sign in
-                        </Button>
-                    </Link>
-                </div>
-            </div>
+                <Link href="/sign-in">
+                    <Button role="link" tabIndex={-1}>
+                        Sign in
+                    </Button>
+                </Link>
+            </>
         );
     }
 
     return (
-        <div className="flex flex-col">
-            <h1>Welcome {store.currentUser?.fullName}</h1>
+        <>
+            <div className="flex items-center justify-center rounded-full">
+                <UserButton />
+            </div>
 
             <SignOutButton>
                 <Button variant={"destructive"}>Sign out</Button>
             </SignOutButton>
-
-            <div className="bg-slate-700 self-start my-8 flex items-center justify-center rounded-full p-0.5 scale-150">
-                <UserButton />
-            </div>
-        </div>
+        </>
     );
 };
