@@ -92,7 +92,7 @@ body {
 }
 
 .cl-rootBox {
-    @apply flex flex-col items-center justify-center border border-secondary rounded-full p-1;
+    @apply flex flex-col items-center justify-center rounded-full;
 }
 
 .cl-button {
@@ -100,5 +100,5 @@ body {
 }
 
 .cl-button:focus {
-    @apply ring-slate-700 ring-4 outline-none ring-offset-4 ring-offset-black;
+    @apply ring-slate-700 ring-2 outline-none ring-offset-2 ring-offset-black;
 }
