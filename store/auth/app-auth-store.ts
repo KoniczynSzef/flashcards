@@ -3,15 +3,11 @@ import { AppAuth } from "../../types/auth/app-auth";
 
 export const useAppAuthStore = create<AppAuth>((set) => ({
     isAuthenticating: true,
-    authState: "guest",
+    authState: "loading",
     currentUser: null,
 
     setAuthState: (authState) => set({ authState }),
     setIsAuthenticating: (isAuthenticating) => set({ isAuthenticating }),
 
-    setCurrentUser: (currentUser) =>
-        set({
-            currentUser,
-            authState: currentUser ? "authenticated" : "guest",
-        }),
+    setCurrentUser: (currentUser) => set({ currentUser }),
 }));

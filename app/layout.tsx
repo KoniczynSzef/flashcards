@@ -21,7 +21,7 @@ export default function RootLayout({
         <Providers>
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
-                    <main className="flex flex-col justify-center items-center">
+                    <main className="flex flex-col justify-center items-center p-24">
                         {children}
                     </main>
                 </body>
