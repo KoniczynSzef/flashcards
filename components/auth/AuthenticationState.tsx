@@ -5,7 +5,7 @@ import { DottedLoadingIndicator } from "../loading/DottedLoadingIndicator";
 
 type Props = object & {};
 
-export const AuthWrapper: React.FC<Props> = () => {
+export const AuthenticationState: React.FC<Props> = () => {
     return (
         <div className="auth-wrapper">
             <ClerkLoading>
