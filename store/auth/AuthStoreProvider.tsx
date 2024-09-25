@@ -15,12 +15,9 @@ export const AuthStoreProvider: React.FC<Props> = (props) => {
         setIsAuthenticating,
         setAuthState,
         isAuthenticating,
-        authState,
     } = useAppAuthStore();
 
     React.useEffect(() => {
-        console.log(authState);
-
         if (!user && isAuthenticating) {
             return setIsAuthenticating(false);
         }
@@ -39,7 +36,6 @@ export const AuthStoreProvider: React.FC<Props> = (props) => {
         setIsAuthenticating,
         setAuthState,
         isAuthenticating,
-        authState,
     ]);
 
     return props.children;
