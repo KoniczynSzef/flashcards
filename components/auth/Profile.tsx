@@ -6,13 +6,20 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { SignOutButton, UserButton } from "@clerk/nextjs";
 
+import { motion } from "framer-motion";
+
 type Props = object & {};
 
 export function ProfileWrapper(props: { children: React.ReactNode }) {
     return (
-        <div className="flex items-center gap-8 w-full justify-center">
+        <motion.div
+            className="flex w-full items-center justify-center gap-8"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+        >
             {props.children}
-        </div>
+        </motion.div>
     );
 }
 

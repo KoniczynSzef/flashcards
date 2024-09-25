@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import { Providers } from "../providers/Providers";
+import { Navbar } from "../components/navbar/Navbar";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -21,7 +22,8 @@ export default function RootLayout({
         <Providers>
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
-                    <main className="flex flex-col justify-center items-center p-24">
+                    <Navbar />
+                    <main className="flex flex-col items-center justify-center p-24">
                         {children}
                     </main>
                 </body>
