@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
@@ -8,9 +10,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 type Props = object & {};
 
 export const MobileSheet: React.FC<Props> = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
     return (
         <div className="block lg:hidden">
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                     <Button size={"icon"}>
                         <Menu />
@@ -18,7 +22,10 @@ export const MobileSheet: React.FC<Props> = () => {
                 </SheetTrigger>
 
                 <SheetContent className="mx-auto flex flex-col gap-24 bg-black py-16">
-                    <LinksNavigation className="flex flex-col" />
+                    <LinksNavigation
+                        className="flex flex-col"
+                        handleCloseSheet={() => setIsOpen(false)}
+                    />
                     <AuthenticationState />
                 </SheetContent>
             </Sheet>
