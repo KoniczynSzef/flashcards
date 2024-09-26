@@ -13,7 +13,7 @@ type Props = object & {};
 export function ProfileWrapper(props: { children: React.ReactNode }) {
     return (
         <motion.div
-            className="flex w-full items-center justify-center gap-8"
+            className="flex w-full flex-col items-center justify-center gap-8 lg:flex-row"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}

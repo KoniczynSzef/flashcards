@@ -4,24 +4,30 @@ import { AuthenticationState } from "../auth/AuthenticationState";
 import Image from "next/image";
 
 import Logo from "../../assets/images/langcards.png";
+import { LinksNavigation } from "./LinksNavigation";
+import { MobileSheet } from "./MobileSheet";
 
 type Props = object & {};
 
 export const Navbar: React.FC<Props> = () => {
     return (
-        <nav className="container mx-auto flex items-center justify-between py-8">
+        <nav className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl">
             <Link
                 href="/"
-                className="rounded px-4 py-2 text-2xl italic tracking-wider transition duration-300 hover:bg-secondary focus:outline-none focus:ring focus:ring-secondary"
+                className="rounded px-4 py-2 text-2xl italic tracking-wider transition duration-300 hover:bg-secondary focus:outline-none focus:ring focus:ring-slate-700 lg:mr-80"
             >
                 <Image
                     src={Logo}
                     alt="Logo with brand title"
-                    className="-rotate-3"
+                    width={150}
+                    height={80}
                 />
             </Link>
 
-            <AuthenticationState />
+            <LinksNavigation className="hidden lg:flex" />
+            <AuthenticationState className="ml-auto hidden lg:block" />
+
+            <MobileSheet />
         </nav>
     );
 };
