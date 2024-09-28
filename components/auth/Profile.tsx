@@ -29,13 +29,16 @@ export const Profile: React.FC<Props> = () => {
     if (authState === "guest") {
         return (
             <>
-                <Link href="/sign-up">
+                <Link
+                    href="/sign-up"
+                    className="link__with__button ring-slate-600"
+                >
                     <Button role="link" tabIndex={-1} variant={"outline"}>
                         Sign up
                     </Button>
                 </Link>
 
-                <Link href="/sign-in">
+                <Link href="/sign-in" className="link__with__button ring-white">
                     <Button role="link" tabIndex={-1}>
                         Sign in
                     </Button>

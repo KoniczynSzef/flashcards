@@ -106,3 +106,11 @@ body {
 .sheet__close__button:focus {
     @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-black;
 }
+
+.link__with__button {
+    @apply rounded transition duration-300;
+}
+
+.link__with__button:focus {
+    @apply outline-none ring-2 ring-offset-4 ring-offset-black;
+}
