@@ -1,9 +1,14 @@
+import { Hero } from "@/components/hero/Hero";
 import React from "react";
 
 type Props = object & {};
 
 const page: React.FC<Props> = async () => {
-    return <div>Home Page of LangCards</div>;
+    return (
+        <>
+            <Hero />
+        </>
+    );
 };
 
 export default page;
