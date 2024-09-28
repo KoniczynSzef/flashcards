@@ -4,7 +4,6 @@ import React from "react";
 import { useAppAuthStore } from "../../store/auth/app-auth-store";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { SignOutButton } from "@clerk/nextjs";
 
 import { motion } from "framer-motion";
 import { UserDropdown } from "../navbar/user-dropdown/UserDropdown";

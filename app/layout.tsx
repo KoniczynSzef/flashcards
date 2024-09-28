@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "../providers/Providers";
 import { Navbar } from "../components/navbar/Navbar";
 import { PageAnimation } from "@/components/helpers/PageAnimation";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -27,6 +28,7 @@ export default function RootLayout({
                     <main className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-24 p-24">
                         <PageAnimation>{children}</PageAnimation>
                     </main>
+                    <Toaster richColors />
                 </body>
             </html>
         </Providers>

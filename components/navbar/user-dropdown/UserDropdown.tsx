@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAppAuthStore } from "@/store/auth/app-auth-store";
 import { BookOpen, ChevronDown, LogOut, Settings, User } from "lucide-react";
-import Link from "next/link";
 
 import { useClerk } from "@clerk/nextjs";
+import { toast } from "sonner";
+import { UserDropdownItem } from "./UserDropdownItem";
 
 type Props = object & {};
 
@@ -24,6 +24,14 @@ export const UserDropdown: React.FC<Props> = () => {
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const { signOut } = useClerk();
+
+    async function handleSignOut() {
+        toast.promise(signOut({ redirectUrl: "/" }), {
+            loading: "We're signing you out...",
+            success: "Signed out successfully",
+            error: "Failed to sign out",
+        });
+    }
 
     if (authState === "guest" || authState === "loading") {
         return null;
@@ -46,59 +54,44 @@ export const UserDropdown: React.FC<Props> = () => {
 
             <DropdownMenuContent>
                 <DropdownMenuLabel>Learning</DropdownMenuLabel>
+
                 <DropdownMenuSeparator />
-                <DropdownMenuItem
-                    className="flex cursor-pointer items-center gap-3"
-                    tabIndex={-1}
-                    asChild
-                >
-                    <Link href={"/learning"}>
-                        <BookOpen className="h-5" />
-                        <span>Learn</span>
-                    </Link>
-                </DropdownMenuItem>
+
+                <UserDropdownItem
+                    isLink
+                    href={"/learning"}
+                    icon={<BookOpen className="h-5" />}
+                    label={"Learn"}
+                />
 
                 <DropdownMenuSeparator />
 
                 <DropdownMenuLabel>Account</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-
-                <DropdownMenuItem
-                    className="flex cursor-pointer items-center gap-3"
-                    tabIndex={-1}
-                    asChild
-                >
-                    <Link href={"/profile"}>
-                        <User className="h-5" />
-                        <span>Profile</span>
-                    </Link>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem
-                    className="flex cursor-pointer items-center gap-3"
-                    tabIndex={-1}
-                    asChild
-                >
-                    <Link href={"/settings"}>
-                        <Settings className="h-5" />
-                        <span>Settings</span>
-                    </Link>
-                </DropdownMenuItem>
 
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem
-                    className="flex cursor-pointer items-center gap-3"
-                    tabIndex={-1}
-                    onClick={() =>
-                        signOut({
-                            redirectUrl: "/",
-                        })
-                    }
-                >
-                    <LogOut className="h-5" />
-                    <span>Sign out</span>
-                </DropdownMenuItem>
+                <UserDropdownItem
+                    isLink
+                    href={"/profile"}
+                    icon={<User className="h-5" />}
+                    label={"Profile"}
+                />
+
+                <UserDropdownItem
+                    isLink
+                    href={"/settings"}
+                    icon={<Settings className="h-5" />}
+                    label={"Settings"}
+                />
+
+                <DropdownMenuSeparator />
+
+                <UserDropdownItem
+                    isFocusable
+                    icon={<LogOut className="h-5" />}
+                    label={"Sign out"}
+                    handleClick={handleSignOut}
+                />
             </DropdownMenuContent>
         </DropdownMenu>
     );
