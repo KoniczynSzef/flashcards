@@ -14,7 +14,7 @@ export const Navbar: React.FC<Props> = () => {
         <nav className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl">
             <Link
                 href="/"
-                className="rounded px-4 py-2 text-2xl italic tracking-wider transition duration-300 hover:bg-secondary focus:outline-none focus:ring focus:ring-slate-700 lg:mr-80"
+                className="rounded px-4 py-2 text-2xl italic tracking-wider transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring focus:ring-slate-700 lg:mr-80"
             >
                 <Image
                     src={Logo}
