@@ -8,7 +8,7 @@ type Props = object & {};
 export const Hero: React.FC<Props> = () => {
     return (
         <div className="flex flex-col items-center gap-8 text-center">
-            <h1 className="bg-gradient-to-b from-white to-slate-400 bg-clip-text py-1 text-6xl font-semibold leading-tight text-transparent">
+            <h1 className="bg-gradient-to-b from-white to-violet-300 bg-clip-text py-1 text-6xl font-semibold leading-tight text-transparent">
                 Flashcards that make language learning effortless.
             </h1>
 
