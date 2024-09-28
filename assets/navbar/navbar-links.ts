@@ -4,8 +4,8 @@ export const NAVBAR_LINKS = [
         href: "/create-deck",
     },
     {
-        title: "My learning",
-        href: "/my-learning",
+        title: "Learning",
+        href: "/learning",
     },
     {
         title: "About us",

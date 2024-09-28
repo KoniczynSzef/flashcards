@@ -5,6 +5,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "../providers/Providers";
 import { Navbar } from "../components/navbar/Navbar";
+import { PageAnimation } from "@/components/helpers/PageAnimation";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -24,7 +25,7 @@ export default function RootLayout({
                 <body className={`${inter.className}`}>
                     <Navbar />
                     <main className="mx-auto flex max-w-7xl flex-col items-center justify-center p-24">
-                        {children}
+                        <PageAnimation>{children}</PageAnimation>
                     </main>
                 </body>
             </html>

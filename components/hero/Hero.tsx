@@ -1,13 +1,31 @@
+import Link from "next/link";
 import React from "react";
+import { Button } from "../ui/button";
+import { ArrowRight } from "lucide-react";
 
 type Props = object & {};
 
 export const Hero: React.FC<Props> = () => {
     return (
-        <div>
-            <h1 className="bg-gradient-to-b from-white to-slate-400 bg-clip-text py-1 text-center text-6xl font-semibold text-transparent">
+        <div className="flex flex-col items-center gap-8 text-center">
+            <h1 className="bg-gradient-to-b from-white to-slate-400 bg-clip-text py-1 text-6xl font-semibold leading-tight text-transparent">
                 Flashcards that make language learning effortless.
             </h1>
+
+            <p className="text-muted-foreground">
+                Master new languages quickly, with smart flashcards designed to
+                fit into your busy day.
+            </p>
+
+            <Link
+                href={"/learning"}
+                className="group flex w-min rounded transition duration-300 focus:outline-none focus:ring focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
+            >
+                <Button tabIndex={-1} className="flex items-center gap-2">
+                    Start learning{" "}
+                    <ArrowRight className="transition duration-300 group-hover:-rotate-45" />
+                </Button>
+            </Link>
         </div>
     );
 };
