@@ -4,9 +4,10 @@ import React from "react";
 import { useAppAuthStore } from "../../store/auth/app-auth-store";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { SignOutButton, UserButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
 
 import { motion } from "framer-motion";
+import { UserDropdown } from "../navbar/user-dropdown/UserDropdown";
 
 type Props = object & {};
 
@@ -47,15 +48,5 @@ export const Profile: React.FC<Props> = () => {
         );
     }
 
-    return (
-        <>
-            <div className="flex items-center justify-center rounded-full">
-                <UserButton />
-            </div>
-
-            <SignOutButton>
-                <Button variant={"destructive"}>Sign out</Button>
-            </SignOutButton>
-        </>
-    );
+    return <UserDropdown />;
 };
