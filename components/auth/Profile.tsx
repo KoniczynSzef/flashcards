@@ -17,6 +17,7 @@ export function ProfileWrapper(props: { children: React.ReactNode }) {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
+            data-testid="profile-wrapper"
         >
             {props.children}
         </motion.div>

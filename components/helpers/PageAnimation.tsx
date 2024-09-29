@@ -10,7 +10,15 @@ type Props = object & {
 
 export const PageAnimation: React.FC<Props> = (props) => {
     const pathname = usePathname();
-    const path = pathname === "/" ? "home" : pathname.replace("/", "");
+    let path: string = "";
+
+    // * This null check is necessary for the test to run and pass
+
+    if (pathname === null || pathname === "/") {
+        path = "home";
+    } else {
+        path = pathname.replace("/", "");
+    }
 
     return (
         <motion.div
