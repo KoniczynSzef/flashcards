@@ -9,6 +9,7 @@ type Props = object & {
     icon: React.ReactNode;
     label: string;
     handleClick?: () => void;
+    ariaLabel?: string;
 };
 
 export const UserDropdownItem: React.FC<Props> = (props) => {
@@ -31,6 +32,7 @@ export const UserDropdownItem: React.FC<Props> = (props) => {
         <DropdownMenuItem
             className="flex cursor-pointer items-center gap-3"
             onClick={props.handleClick}
+            aria-label={props.ariaLabel}
         >
             {props.icon}
             <span>{props.label}</span>

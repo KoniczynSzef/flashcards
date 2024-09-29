@@ -91,6 +91,7 @@ export const UserDropdown: React.FC<Props> = () => {
                     icon={<LogOut className="h-5" />}
                     label={"Sign out"}
                     handleClick={handleSignOut}
+                    ariaLabel={"Click to sign out"}
                 />
             </DropdownMenuContent>
         </DropdownMenu>
