@@ -24,6 +24,7 @@ export const LinksNavigation: React.FC<Props> = (props) => {
                         href={link.href}
                         className="rounded px-4 py-2 transition duration-300 hover:bg-accent focus:outline-none focus:ring focus:ring-slate-700"
                         onClick={props.handleCloseSheet}
+                        data-testid="navbar-link"
                     >
                         {link.title}
                     </Link>

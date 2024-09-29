@@ -11,7 +11,10 @@ type Props = object & {};
 
 export const Navbar: React.FC<Props> = () => {
     return (
-        <nav className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl">
+        <nav
+            className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl"
+            data-testid="navbar"
+        >
             <Link
                 href="/"
                 className="rounded px-4 py-2 text-2xl italic tracking-wider transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring focus:ring-slate-700 lg:mr-80"
@@ -21,6 +24,7 @@ export const Navbar: React.FC<Props> = () => {
                     alt="Logo with brand title"
                     width={150}
                     height={80}
+                    data-testid="navbar-logo"
                 />
             </Link>
 

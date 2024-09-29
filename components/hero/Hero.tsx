@@ -34,7 +34,7 @@ export const Hero: React.FC<Props> = () => {
                     data-testid="hero-button"
                 >
                     Start learning{" "}
-                    <ArrowRight className="transition duration-300 group-hover:-rotate-45" />
+                    <ArrowRight className="transition duration-300 group-hover:-rotate-45 group-focus:-rotate-45" />
                 </Button>
             </Link>
         </div>
