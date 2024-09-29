@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = object & {};
 
-const page: React.FC<Props> = async () => {
+const HomePage: React.FC<Props> = () => {
     return (
         <>
             <Hero />
@@ -11,4 +11,4 @@ const page: React.FC<Props> = async () => {
     );
 };
 
-export default page;
+export default HomePage;
