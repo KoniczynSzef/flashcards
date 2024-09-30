@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 type Props = object & {};
 
-const ANIMATION_DURATION = 0.15;
+const ANIMATION_DURATION = 0.5;
 
 export const DottedLoadingIndicator: React.FC<Props> = () => {
     const [currentDotIndex, setCurrentDotIndex] = React.useState(0);
@@ -26,6 +26,7 @@ export const DottedLoadingIndicator: React.FC<Props> = () => {
             role="presentation"
             aria-label="Dotted loading state indicator"
             className="flex items-center gap-2"
+            data-testid={`dotted-loading-indicator`}
         >
             {Array.from({ length: 3 }).map((_, index) => (
                 <motion.div
@@ -46,8 +47,10 @@ export const DottedLoadingIndicator: React.FC<Props> = () => {
                             : { scale: 1, backgroundColor: "#334155", y: 0 }
                     }
                     transition={{
-                        duration: 0.35,
+                        duration: ANIMATION_DURATION,
                     }}
+                    data-testid="loading-dot"
+                    data-current-dot={currentDotIndex === index}
                 />
             ))}
         </div>
