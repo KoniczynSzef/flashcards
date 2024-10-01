@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = object & {};
 
-const HomePage: React.FC<Props> = () => {
+const HomePage: React.FC<Props> = async () => {
     return (
         <>
             <Hero />
