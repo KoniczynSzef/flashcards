@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1727887842067,
+      "tag": "0000_shiny_miracleman",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1727888314728,
+      "tag": "0001_tired_shiver_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1727888600671,
+      "tag": "0002_curly_tombstone",
+      "breakpoints": true
+    }
+  ]
+}
