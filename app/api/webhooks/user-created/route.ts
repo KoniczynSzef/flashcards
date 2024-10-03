@@ -54,8 +54,12 @@ export async function POST(request: Request) {
     const data = evt.data;
 
     try {
+        const username =
+            data.username ??
+            "User#" + crypto.getRandomValues(new Uint32Array(1)).join("");
+
         await db.insert(User).values({
-            username: data.username,
+            username,
             email: data.email_addresses[0].email_address,
             lastLogin: new Date(),
         });

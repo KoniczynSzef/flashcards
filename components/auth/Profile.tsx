@@ -25,7 +25,7 @@ export function ProfileWrapper(props: { children: React.ReactNode }) {
 }
 
 export const Profile: React.FC<Props> = () => {
-    const { authState } = useAppAuthStore();
+    const { authState, currentUser } = useAppAuthStore();
 
     if (authState === "guest") {
         return (
@@ -46,6 +46,10 @@ export const Profile: React.FC<Props> = () => {
                 </Link>
             </>
         );
+    }
+
+    if (!currentUser?.firstName) {
+        return null;
     }
 
     return <UserDropdown />;
