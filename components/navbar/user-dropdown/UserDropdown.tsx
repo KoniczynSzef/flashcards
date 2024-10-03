@@ -21,6 +21,8 @@ type Props = object & {};
 
 export const UserDropdown: React.FC<Props> = () => {
     const { currentUser, authState } = useAppAuthStore();
+    console.log(currentUser);
+
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const { signOut } = useClerk();
