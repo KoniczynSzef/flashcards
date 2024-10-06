@@ -14,26 +14,17 @@ import { useAppAuthStore } from "@/store/auth/app-auth-store";
 import { BookOpen, ChevronDown, LogOut, Settings, User } from "lucide-react";
 
 import { useClerk } from "@clerk/nextjs";
-import { toast } from "sonner";
 import { UserDropdownItem } from "./UserDropdownItem";
+import { handleSignOutWithToast } from "@/store/auth/AuthStoreProvider";
 
 type Props = object & {};
 
 export const UserDropdown: React.FC<Props> = () => {
     const { currentUser, authState } = useAppAuthStore();
-    console.log(currentUser);
 
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const { signOut } = useClerk();
-
-    async function handleSignOut() {
-        toast.promise(signOut({ redirectUrl: "/" }), {
-            loading: "We're signing you out...",
-            success: "Signed out successfully",
-            error: "Failed to sign out",
-        });
-    }
 
     if (authState === "guest" || authState === "loading") {
         return null;
@@ -92,7 +83,7 @@ export const UserDropdown: React.FC<Props> = () => {
                     isFocusable
                     icon={<LogOut className="h-5" />}
                     label={"Sign out"}
-                    handleClick={handleSignOut}
+                    handleClick={handleSignOutWithToast.bind(null, signOut)}
                     ariaLabel={"Click to sign out"}
                 />
             </DropdownMenuContent>

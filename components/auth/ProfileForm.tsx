@@ -20,26 +20,34 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { useAppAuthStore } from "@/store/auth/app-auth-store";
 
 type Props = object & React.HTMLAttributes<HTMLFormElement> & {};
 
 export const ProfileForm: React.FC<Props> = (props) => {
+    const { currentUser } = useAppAuthStore();
+
     const form = useForm<ProfileFormSchema>({
         defaultValues: {
             username: "",
             bioDescription: "",
-            email: "",
+            email: currentUser?.primaryEmailAddress?.emailAddress ?? "",
         },
 
         mode: "onBlur",
         resolver: zodResolver(profileFormSchema),
     });
 
+    async function handleSubmitForm(data: ProfileFormSchema) {
+        console.log(data);
+    }
+
     return (
         <Form {...form}>
             <form
-                action=""
                 className={cn(props.className, "flex max-w-2xl flex-col gap-8")}
+                onSubmit={form.handleSubmit(handleSubmitForm)}
             >
                 <FormField
                     control={form.control}
@@ -84,6 +92,32 @@ export const ProfileForm: React.FC<Props> = (props) => {
                         </FormItem>
                     )}
                 />
+
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                                <Input
+                                    placeholder="e.g. johndoe@gmail.com"
+                                    {...field}
+                                    required
+                                    type="email"
+                                />
+                            </FormControl>
+                            <FormDescription>
+                                Your email address will be used to send you
+                                notifications about your account and activity on
+                                LangCards.
+                            </FormDescription>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <Button type="submit">Update profile</Button>
             </form>
         </Form>
     );

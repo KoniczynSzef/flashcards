@@ -7,6 +7,8 @@ import { Button } from "../ui/button";
 
 import { motion } from "framer-motion";
 import { UserDropdown } from "../navbar/user-dropdown/UserDropdown";
+import { useClerk } from "@clerk/nextjs";
+import { handleSignOutWithToast } from "@/store/auth/AuthStoreProvider";
 
 type Props = object & {};
 
@@ -26,6 +28,11 @@ export function ProfileWrapper(props: { children: React.ReactNode }) {
 
 export const Profile: React.FC<Props> = () => {
     const { authState, currentUser } = useAppAuthStore();
+    const { signOut } = useClerk();
+
+    async function handleSignOut() {
+        await handleSignOutWithToast(signOut);
+    }
 
     if (authState === "guest") {
         return (
@@ -48,8 +55,12 @@ export const Profile: React.FC<Props> = () => {
         );
     }
 
-    if (!currentUser?.firstName) {
-        return null;
+    if (!currentUser?.username) {
+        return (
+            <Button role="button" variant="destructive" onClick={handleSignOut}>
+                Sign out
+            </Button>
+        );
     }
 
     return <UserDropdown />;

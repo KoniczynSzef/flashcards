@@ -1,15 +1,27 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
 import React from "react";
 import { useAppAuthStore } from "./app-auth-store";
+import { toast } from "sonner";
+
+import { SignOut } from "@clerk/types";
+import { useClerk } from "@clerk/nextjs";
 
 type Props = object & {
     children: React.ReactNode;
 };
 
+export async function handleSignOutWithToast(signOut: SignOut) {
+    toast.promise(signOut({ redirectUrl: "/" }), {
+        loading: "We're signing you out...",
+        success: "Signed out successfully",
+        error: "Failed to sign out",
+    });
+}
+
 export const AuthStoreProvider: React.FC<Props> = (props) => {
-    const { user } = useUser();
+    const { user } = useClerk();
+
     const {
         setCurrentUser,
         setIsAuthenticating,
