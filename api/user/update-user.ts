@@ -5,7 +5,7 @@ import { UserTable } from "@/database/schema";
 import { actionClient } from "@/lib/safe-action";
 import { profileFormSchema } from "@/schema/profile-form/schema";
 
-export const createUser = actionClient
+export const updateUser = actionClient
     .schema(profileFormSchema)
     .action(async ({ parsedInput: data }) => {
         const user = await db
@@ -20,8 +20,6 @@ export const createUser = actionClient
         if (!user) {
             throw new Error("Error creating user");
         }
-
-        console.log(await db.query.UserTable.findMany());
 
         return user;
     });

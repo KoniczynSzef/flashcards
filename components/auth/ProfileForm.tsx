@@ -22,7 +22,7 @@ import { Textarea } from "../ui/textarea";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useAppAuthStore } from "@/store/auth/app-auth-store";
-import { createUser } from "@/api/user/create-user";
+import { updateUser as updateUserAction } from "@/api/user/update-user";
 import { toast } from "sonner";
 import { useAction } from "next-safe-action/hooks";
 import RotatingLoader from "../loading/RotatingLoader";
@@ -32,7 +32,7 @@ type Props = object & React.HTMLAttributes<HTMLFormElement> & {};
 
 export const ProfileForm: React.FC<Props> = (props) => {
     const router = useRouter();
-    const { executeAsync, isPending } = useAction(createUser);
+    const { executeAsync: updateUser, isPending } = useAction(updateUserAction);
 
     const { currentUser } = useAppAuthStore();
 
@@ -58,7 +58,7 @@ export const ProfileForm: React.FC<Props> = (props) => {
 
     async function handleSubmitForm(data: ProfileFormSchema) {
         try {
-            await executeAsync(data);
+            await updateUser(data);
             toast.success("Profile updated successfully");
 
             await new Promise((resolve) => setTimeout(resolve, 200));
