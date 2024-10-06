@@ -27,8 +27,10 @@ export function ProfileWrapper(props: { children: React.ReactNode }) {
 }
 
 export const Profile: React.FC<Props> = () => {
-    const { authState, currentUser } = useAppAuthStore();
+    const { authState, user } = useAppAuthStore();
     const { signOut } = useClerk();
+
+    console.log(user);
 
     async function handleSignOut() {
         await handleSignOutWithToast(signOut);
@@ -55,7 +57,7 @@ export const Profile: React.FC<Props> = () => {
         );
     }
 
-    if (!currentUser?.username) {
+    if (!user?.username) {
         return (
             <Button role="button" variant="destructive" onClick={handleSignOut}>
                 Sign out

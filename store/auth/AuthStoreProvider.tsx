@@ -6,8 +6,10 @@ import { toast } from "sonner";
 
 import { SignOut } from "@clerk/types";
 import { useClerk } from "@clerk/nextjs";
+import { AppUser } from "@/types/auth/app-user";
 
 type Props = object & {
+    user: AppUser;
     children: React.ReactNode;
 };
 
@@ -20,34 +22,38 @@ export async function handleSignOutWithToast(signOut: SignOut) {
 }
 
 export const AuthStoreProvider: React.FC<Props> = (props) => {
-    const { user } = useClerk();
+    const { user: clerkUser } = useClerk();
 
     const {
-        setCurrentUser,
+        setClerkUser,
         setIsAuthenticating,
         setAuthState,
         isAuthenticating,
+        setUser,
     } = useAppAuthStore();
 
     React.useEffect(() => {
-        if (!user && isAuthenticating) {
+        if (!clerkUser && isAuthenticating) {
             return setIsAuthenticating(false);
         }
 
-        if (!user) {
+        if (!clerkUser) {
             setIsAuthenticating(false);
             return setAuthState("guest");
         }
 
         setAuthState("authenticated");
-        setCurrentUser(user);
+        setClerkUser(clerkUser);
         setIsAuthenticating(false);
+        setUser(props.user);
     }, [
-        user,
-        setCurrentUser,
+        clerkUser,
+        setClerkUser,
         setIsAuthenticating,
         setAuthState,
         isAuthenticating,
+        props.user,
+        setUser,
     ]);
 
     return props.children;

@@ -8,7 +8,7 @@ type Props = object & {};
 const HomePage: React.FC<Props> = async () => {
     const user = await currentUser();
 
-    if (user && !user?.firstName) {
+    if (user && !user?.username) {
         redirect("/settings");
     }
 

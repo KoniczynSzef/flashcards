@@ -34,12 +34,12 @@ export const ProfileForm: React.FC<Props> = (props) => {
     const router = useRouter();
     const { executeAsync: updateUser, isPending } = useAction(updateUserAction);
 
-    const { currentUser } = useAppAuthStore();
+    const { clerkUser, user } = useAppAuthStore();
 
     const form = useForm<ProfileFormSchema>({
         defaultValues: {
-            username: "",
-            bioDescription: "",
+            username: user?.username || "",
+            bioDescription: user?.bioDescription || "",
             email: "",
         },
 
@@ -48,13 +48,10 @@ export const ProfileForm: React.FC<Props> = (props) => {
     });
 
     React.useEffect(() => {
-        if (currentUser?.primaryEmailAddress?.emailAddress) {
-            form.setValue(
-                "email",
-                currentUser.primaryEmailAddress.emailAddress,
-            );
+        if (clerkUser?.primaryEmailAddress?.emailAddress) {
+            form.setValue("email", clerkUser.primaryEmailAddress.emailAddress);
         }
-    }, [currentUser, form]);
+    }, [clerkUser, form]);
 
     async function handleSubmitForm(data: ProfileFormSchema) {
         try {

@@ -24,4 +24,5 @@ export const UserTable = sqliteTable("user", {
     email: text("email").unique(),
     lastLogin: integer("last_login", { mode: "timestamp" }),
     createdAt,
+    clerkId: text("clerk_id").unique().notNull(),
 });

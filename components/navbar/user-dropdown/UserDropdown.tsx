@@ -20,7 +20,7 @@ import { handleSignOutWithToast } from "@/store/auth/AuthStoreProvider";
 type Props = object & {};
 
 export const UserDropdown: React.FC<Props> = () => {
-    const { currentUser, authState } = useAppAuthStore();
+    const { user, authState } = useAppAuthStore();
 
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
@@ -30,7 +30,7 @@ export const UserDropdown: React.FC<Props> = () => {
         return null;
     }
 
-    if (!currentUser) {
+    if (!user) {
         return null;
     }
 
@@ -38,7 +38,7 @@ export const UserDropdown: React.FC<Props> = () => {
         <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
             <DropdownMenuTrigger asChild>
                 <Button variant={"ghost"} className="flex items-center gap-2">
-                    {currentUser.fullName}
+                    {user.username}
                     <ChevronDown
                         className={`${isDropdownOpen ? "rotate-180" : ""} transition duration-300`}
                     />

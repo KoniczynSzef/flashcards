@@ -1,7 +1,6 @@
-import { useUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+import { UserTable } from "@/database/schema";
+import { InferInsertModel, InferSelectModel } from "drizzle-orm";
 
-export type AppUser =
-    | User
-    | NonNullable<ReturnType<typeof useUser>["user"]>
-    | null;
+export type AppUser = InferSelectModel<typeof UserTable> | null;
+
+export type AppUserInsert = InferInsertModel<typeof UserTable>;
