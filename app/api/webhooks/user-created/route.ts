@@ -1,5 +1,5 @@
 import { db } from "@/database";
-import { User } from "@/database/schema";
+import { UserTable } from "@/database/schema";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
             data.username ??
             "User#" + crypto.getRandomValues(new Uint32Array(1)).join("");
 
-        await db.insert(User).values({
+        await db.insert(UserTable).values({
             username,
             email: data.email_addresses[0].email_address,
             lastLogin: new Date(),

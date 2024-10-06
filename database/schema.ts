@@ -3,7 +3,7 @@ import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 // prettier-ignore
 const createdAt = integer("created_at", { mode: "timestamp" }).$default(() => new Date());
 
-export const Flashcard = sqliteTable("flashcard", {
+export const FlashcardTable = sqliteTable("flashcard", {
     id: text("id")
         .notNull()
         .primaryKey()
@@ -14,7 +14,7 @@ export const Flashcard = sqliteTable("flashcard", {
     createdAt,
 });
 
-export const User = sqliteTable("user", {
+export const UserTable = sqliteTable("user", {
     id: text("id")
         .notNull()
         .primaryKey()

@@ -22,25 +22,51 @@ import { Textarea } from "../ui/textarea";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useAppAuthStore } from "@/store/auth/app-auth-store";
+import { createUser } from "@/api/user/create-user";
+import { toast } from "sonner";
+import { useAction } from "next-safe-action/hooks";
+import RotatingLoader from "../loading/RotatingLoader";
+import { useRouter } from "next/navigation";
 
 type Props = object & React.HTMLAttributes<HTMLFormElement> & {};
 
 export const ProfileForm: React.FC<Props> = (props) => {
+    const router = useRouter();
+    const { executeAsync, isPending } = useAction(createUser);
+
     const { currentUser } = useAppAuthStore();
 
     const form = useForm<ProfileFormSchema>({
         defaultValues: {
             username: "",
             bioDescription: "",
-            email: currentUser?.primaryEmailAddress?.emailAddress ?? "",
+            email: "",
         },
 
         mode: "onBlur",
         resolver: zodResolver(profileFormSchema),
     });
 
+    React.useEffect(() => {
+        if (currentUser?.primaryEmailAddress?.emailAddress) {
+            form.setValue(
+                "email",
+                currentUser.primaryEmailAddress.emailAddress,
+            );
+        }
+    }, [currentUser, form]);
+
     async function handleSubmitForm(data: ProfileFormSchema) {
-        console.log(data);
+        try {
+            await executeAsync(data);
+            toast.success("Profile updated successfully");
+
+            await new Promise((resolve) => setTimeout(resolve, 200));
+            router.push("/");
+        } catch (error) {
+            console.error(error);
+            toast.error("Error updating profile");
+        }
     }
 
     return (
@@ -117,7 +143,16 @@ export const ProfileForm: React.FC<Props> = (props) => {
                     )}
                 />
 
-                <Button type="submit">Update profile</Button>
+                <Button type="submit">
+                    {isPending ? (
+                        <RotatingLoader
+                            containerClassName="size-6"
+                            dotClassName="size-2"
+                        />
+                    ) : (
+                        "Update Profile"
+                    )}
+                </Button>
             </form>
         </Form>
     );

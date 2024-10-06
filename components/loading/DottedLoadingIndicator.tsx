@@ -23,8 +23,6 @@ export const DottedLoadingIndicator: React.FC<Props> = () => {
 
     return (
         <div
-            role="presentation"
-            aria-label="Dotted loading state indicator"
             className="flex items-center gap-2"
             data-testid={`dotted-loading-indicator`}
         >
