@@ -51,7 +51,15 @@ export const ProfileForm: React.FC<Props> = (props) => {
         if (clerkUser?.primaryEmailAddress?.emailAddress) {
             form.setValue("email", clerkUser.primaryEmailAddress.emailAddress);
         }
-    }, [clerkUser, form]);
+
+        if (user?.username) {
+            form.setValue("username", user.username);
+        }
+
+        if (user?.bioDescription) {
+            form.setValue("bioDescription", user.bioDescription);
+        }
+    }, [clerkUser, form, user]);
 
     async function handleSubmitForm(data: ProfileFormSchema) {
         try {
