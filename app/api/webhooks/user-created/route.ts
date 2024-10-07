@@ -1,5 +1,5 @@
 import { db } from "@/database";
-import { UserTable } from "@/database/schema";
+import { UserTable } from "@/database/schema/schema";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 
@@ -64,7 +64,6 @@ export async function POST(request: Request) {
             lastLogin: new Date(),
             clerkId: data.id,
         });
-
     } catch (err) {
         if (err instanceof Error) {
             console.error("Error inserting user:", err.message);
