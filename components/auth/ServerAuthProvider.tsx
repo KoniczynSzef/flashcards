@@ -9,7 +9,6 @@ type Props = object & {
 
 export const ServerAuthProvider: React.FC<Props> = async (props) => {
     const { userId } = auth();
-    console.log(userId);
 
     const user = (await getUserByClerkId(userId)) || null;
 

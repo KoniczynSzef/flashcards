@@ -65,7 +65,6 @@ export async function POST(request: Request) {
             clerkId: data.id,
         });
 
-        console.log(await db.query.UserTable.findMany());
     } catch (err) {
         if (err instanceof Error) {
             console.error("Error inserting user:", err.message);
