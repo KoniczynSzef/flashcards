@@ -11,7 +11,8 @@
         "cypress:open": "cypress open",
         "lint": "next lint",
         "migrate": "drizzle-kit generate",
-        "push": "drizzle-kit push"
+        "push": "drizzle-kit push",
+        "studio": "drizzle-kit studio"
     },
     "dependencies": {
         "@clerk/nextjs": "^5.6.0",
