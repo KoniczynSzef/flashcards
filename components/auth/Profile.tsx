@@ -30,7 +30,6 @@ export const Profile: React.FC<Props> = () => {
     const { authState, user } = useAppAuthStore();
     const { signOut } = useClerk();
 
-
     async function handleSignOut() {
         await handleSignOutWithToast(signOut);
     }

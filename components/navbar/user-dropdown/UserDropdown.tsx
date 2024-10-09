@@ -21,10 +21,9 @@ type Props = object & {};
 
 export const UserDropdown: React.FC<Props> = () => {
     const { user, authState } = useAppAuthStore();
+    const { signOut } = useClerk();
 
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-
-    const { signOut } = useClerk();
 
     if (authState === "guest" || authState === "loading") {
         return null;

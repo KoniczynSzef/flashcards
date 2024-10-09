@@ -61,7 +61,7 @@ export async function POST(request: Request) {
         await db.insert(UserTable).values({
             username,
             email: data.email_addresses[0].email_address,
-            lastLogin: new Date(),
+            lastLoginAt: new Date(),
             clerkId: data.id,
         });
     } catch (err) {
