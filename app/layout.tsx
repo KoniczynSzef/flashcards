@@ -25,7 +25,7 @@ export default function RootLayout({
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
                     <Navbar />
-                    <main className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-24 p-24">
+                    <main className="mx-auto max-w-7xl p-24">
                         <PageAnimation>{children}</PageAnimation>
                     </main>
                     <Toaster richColors />
