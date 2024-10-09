@@ -1,53 +1,9 @@
-import { Settings } from "lucide-react";
 import React from "react";
 import { FeatureCard } from "./FeatureCard";
 import { AnimatedSection } from "../helpers/AnimatedSection";
+import { FEATURES_LIST } from "@/assets/features/features";
 
 type Props = object & {};
-type Feature = {
-    title: string;
-    description: string;
-    icon: React.ReactElement;
-};
-
-const features: Feature[] = [
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-blue-700 p-1" />,
-    },
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-indigo-700 p-1" />,
-    },
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-violet-700 p-1" />,
-    },
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-purple-700 p-1" />,
-    },
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-purple-700 p-1" />,
-    },
-    {
-        title: "Feature 1",
-        description:
-            "I need a longer description for this feature to fully test the layout of the component.",
-        icon: <Settings className="size-8 rounded-lg bg-pink-700 p-1" />,
-    },
-];
 
 export const Features: React.FC<Props> = () => {
     return (
@@ -60,8 +16,8 @@ export const Features: React.FC<Props> = () => {
                 the best way to learn a new language.
             </p>
 
-            <ul className="my-24 grid w-full grid-cols-3 place-items-center gap-16">
-                {features.map((feature, index) => (
+            <ul className="my-24 grid w-full grid-cols-1 place-items-center gap-16 md:grid-cols-2 lg:grid-cols-3">
+                {FEATURES_LIST.map((feature, index) => (
                     <FeatureCard key={index} feature={feature} />
                 ))}
             </ul>
