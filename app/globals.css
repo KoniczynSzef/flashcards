@@ -121,3 +121,15 @@ input[required]::after {
     content: " *";
     color: var(--destructive);
 }
+
+.text-H2 {
+    @apply text-center text-4xl font-semibold;
+}
+
+.text-H3 {
+    @apply text-lg;
+}
+
+.paragraph {
+    @apply text-muted-foreground;
+}

@@ -8,10 +8,10 @@ type Props = object & {};
 export const Features: React.FC<Props> = () => {
     return (
         <AnimatedSection sectionId="features" sectionIndex={1}>
-            <h2 className="text-center text-4xl font-semibold">
+            <h2 className="text-H2">
                 LangCards is not like any other flashcard app
             </h2>
-            <p className="mt-4 text-center text-muted-foreground">
+            <p className="paragraph mt-4 text-center">
                 Build with passion and focused on personalization, LangCards is
                 the best way to learn a new language.
             </p>

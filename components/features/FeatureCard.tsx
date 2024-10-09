@@ -15,7 +15,7 @@ export const FeatureCard: React.FC<Props> = (props) => {
         <li key={props.feature.title} className="flex flex-col gap-2">
             {props.feature.icon}
 
-            <h3 className="font-medium">{props.feature.title}</h3>
+            <h3 className="text-H3 font-bold">{props.feature.title}</h3>
             <p className="text-sm text-muted-foreground">
                 {props.feature.description}
             </p>

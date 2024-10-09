@@ -18,7 +18,7 @@ export const Hero: React.FC<Props> = () => {
                 Flashcards that make language learning effortless.
             </h1>
 
-            <p className="text-muted-foreground" data-testid="hero-description">
+            <p className="paragraph" data-testid="hero-description">
                 Master new languages quickly, with smart flashcards designed to
                 fit into your busy day.
             </p>
