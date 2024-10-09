@@ -1,6 +1,7 @@
 import { ClerkLoaded } from "@clerk/nextjs";
 import React from "react";
-import { Profile, ProfileWrapper } from "./Profile";
+import { Profile } from "./profile/Profile";
+import { ProfileWrapper } from "./profile/ProfileWrapper";
 
 type Props = object & {};
 
