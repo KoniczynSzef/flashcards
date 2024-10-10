@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { LinksNavigation } from "./LinksNavigation";
-import { AuthenticationState } from "../auth/AuthenticationState";
+import { AuthenticationState } from "../auth/AuthState";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 type Props = object & {};

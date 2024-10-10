@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { AuthenticationState } from "../auth/AuthenticationState";
+import { AuthenticationState } from "../auth/AuthState";
 import Image from "next/image";
 
 import Logo from "../../assets/images/langcards.png";

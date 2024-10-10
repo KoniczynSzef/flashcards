@@ -1,5 +1,5 @@
 import { db } from "@/database";
-import { UserTable } from "@/database/schema";
+import { UserTable } from "@/database/schema/schema";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 
@@ -61,11 +61,9 @@ export async function POST(request: Request) {
         await db.insert(UserTable).values({
             username,
             email: data.email_addresses[0].email_address,
-            lastLogin: new Date(),
+            lastLoginAt: new Date(),
             clerkId: data.id,
         });
-
-        console.log(await db.query.UserTable.findMany());
     } catch (err) {
         if (err instanceof Error) {
             console.error("Error inserting user:", err.message);

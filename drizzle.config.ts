@@ -10,7 +10,7 @@ if (!process.env.DATABASE_URL) {
 }
 
 export default defineConfig({
-    schema: "database/schema.ts",
+    schema: "database/schema",
     out: "database/migrations",
     dialect: "sqlite",
 

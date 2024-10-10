@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/database";
-import { UserTable } from "@/database/schema";
+import { UserTable } from "@/database/schema/schema";
 import { actionClient } from "@/lib/safe-action";
 import { profileFormSchema } from "@/schema/profile-form/schema";
 

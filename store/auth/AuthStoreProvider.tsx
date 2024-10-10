@@ -1,60 +1,28 @@
 "use client";
 
 import React from "react";
-import { useAppAuthStore } from "./app-auth-store";
 import { toast } from "sonner";
 
-import { SignOut } from "@clerk/types";
 import { useClerk } from "@clerk/nextjs";
 import { AppUser } from "@/types/auth/app-user";
+import { useAuthenticateUser } from "@/hooks/auth/use-authenticate-user";
 
 type Props = object & {
     user: AppUser;
     children: React.ReactNode;
 };
 
-export async function handleSignOutWithToast(signOut: SignOut) {
-    toast.promise(signOut({ redirectUrl: "/" }), {
-        loading: "We're signing you out...",
-        success: "Signed out successfully",
-        error: "Failed to sign out",
-    });
-}
-
 export const AuthStoreProvider: React.FC<Props> = (props) => {
     const { user: clerkUser } = useClerk();
-
-    const {
-        setClerkUser,
-        setIsAuthenticating,
-        setAuthState,
-        isAuthenticating,
-        setUser,
-    } = useAppAuthStore();
+    const { authenticateUser } = useAuthenticateUser(clerkUser, props.user);
 
     React.useEffect(() => {
-        if (!clerkUser && isAuthenticating) {
-            return setIsAuthenticating(false);
-        }
+        const messageStatus = authenticateUser();
 
-        if (!clerkUser) {
-            setIsAuthenticating(false);
-            return setAuthState("guest");
+        if (messageStatus === "Authenticated successfully") {
+            toast.success("Authenticated successfully", { duration: 1500 });
         }
-
-        setAuthState("authenticated");
-        setClerkUser(clerkUser);
-        setIsAuthenticating(false);
-        setUser(props.user);
-    }, [
-        clerkUser,
-        setClerkUser,
-        setIsAuthenticating,
-        setAuthState,
-        isAuthenticating,
-        props.user,
-        setUser,
-    ]);
+    }, [authenticateUser]);
 
     return props.children;
 };

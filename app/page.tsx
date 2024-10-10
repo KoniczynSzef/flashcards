@@ -1,4 +1,6 @@
+import { Features } from "@/components/features/Features";
 import { Hero } from "@/components/hero/Hero";
+import { Pricing } from "@/components/pricing/Pricing";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -15,6 +17,8 @@ const HomePage: React.FC<Props> = async () => {
     return (
         <>
             <Hero />
+            <Features />
+            <Pricing />
         </>
     );
 };

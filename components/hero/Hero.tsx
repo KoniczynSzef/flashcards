@@ -8,24 +8,24 @@ type Props = object & {};
 export const Hero: React.FC<Props> = () => {
     return (
         <div
-            className="flex flex-col items-center gap-8 text-center"
+            className="flex flex-col items-center gap-4 text-center"
             data-testid="hero-section"
         >
             <h1
-                className="bg-gradient-to-b from-white to-violet-300 bg-clip-text py-1 text-6xl font-semibold leading-tight text-transparent"
+                className="bg-gradient-to-b from-white to-violet-300 bg-clip-text py-1 text-6xl font-bold leading-tight text-transparent"
                 data-testid="hero-title"
             >
                 Flashcards that make language learning effortless.
             </h1>
 
-            <p className="text-muted-foreground" data-testid="hero-description">
+            <p className="paragraph" data-testid="hero-description">
                 Master new languages quickly, with smart flashcards designed to
                 fit into your busy day.
             </p>
 
             <Link
                 href={"/learning"}
-                className="group flex w-min rounded transition duration-300 focus:outline-none focus:ring focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
+                className="group mt-4 flex w-min rounded transition duration-300 focus:outline-none focus:ring focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
                 data-testid="hero-link-cta"
             >
                 <Button

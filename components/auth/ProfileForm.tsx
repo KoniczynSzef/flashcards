@@ -69,7 +69,10 @@ export const ProfileForm: React.FC<Props> = (props) => {
             await new Promise((resolve) => setTimeout(resolve, 200));
             router.push("/");
         } catch (error) {
-            console.error(error);
+            if (error instanceof Error) {
+                console.error(error.message);
+            }
+
             toast.error("Error updating profile");
         }
     }
