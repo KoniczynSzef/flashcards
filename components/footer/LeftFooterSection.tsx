@@ -6,7 +6,7 @@ type Props = object & {};
 
 export const LeftFooterSection: React.FC<Props> = () => {
     return (
-        <div className="flex flex-col gap-2">
+        <div className="md:ml- ml-4 flex flex-col gap-2">
             <Languages size={32} className="rounded bg-indigo-600 p-0.5" />
             <h3 className="text-H3 font-medium">LangCards</h3>
             <p className="paragraph text-sm">Learn languages with flashcards</p>
