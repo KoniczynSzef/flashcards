@@ -7,6 +7,7 @@ import { Providers } from "../providers/Providers";
 import { Navbar } from "../components/navbar/Navbar";
 import { PageAnimation } from "@/components/helpers/PageAnimation";
 import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
     title: "LangCards",
@@ -28,6 +29,7 @@ export default function RootLayout({
                     <main className="mx-auto max-w-7xl p-24">
                         <PageAnimation>{children}</PageAnimation>
                     </main>
+                    <Footer />
                     <Toaster richColors />
                 </body>
             </html>

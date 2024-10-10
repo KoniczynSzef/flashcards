@@ -17,7 +17,7 @@ export const AnimatedSection: React.FC<Props> = (props) => {
         <motion.section
             initial={{ opacity: 0, y: 5 }}
             animate={isVisible && { opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: props.sectionIndex * 0.25 }}
+            transition={{ duration: 0.3, delay: 0.25 }}
             ref={sectionRef}
             className="w-full"
         >
