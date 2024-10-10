@@ -1,4 +1,6 @@
-export const FOOTER_LINKS = [
+import { FooterLink } from "@/types/home/footer-link";
+
+export const FOOTER_LINKS: FooterLink[] = [
     {
         title: "Home",
         href: "/",
@@ -31,4 +33,4 @@ export const FOOTER_LINKS = [
         title: "Contact Us",
         href: "/contact",
     },
-] as const;
+];
