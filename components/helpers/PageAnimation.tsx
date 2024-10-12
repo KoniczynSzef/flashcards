@@ -26,7 +26,7 @@ export const PageAnimation: React.FC<Props> = (props) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             data-testid={`${path}-page`}
-            className="flex flex-col items-center justify-center gap-48"
+            className="flex flex-col items-center justify-center gap-24 lg:gap-48"
         >
             {props.children}
         </motion.div>

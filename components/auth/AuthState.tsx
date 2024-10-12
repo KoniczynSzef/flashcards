@@ -5,7 +5,7 @@ import { LoadedAuthState } from "./LoadedAuthState";
 
 type Props = object & React.HTMLProps<HTMLDivElement> & {};
 
-export const AuthenticationState: React.FC<Props> = (props) => {
+export const AuthState: React.FC<Props> = (props) => {
     return (
         <div className={cn("auth-wrapper", props.className)}>
             <AuthLoading />

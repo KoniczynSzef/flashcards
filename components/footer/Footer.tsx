@@ -10,7 +10,7 @@ export const Footer: React.FC<Props> = () => {
     const date = new Date();
     return (
         <footer className="bg-black py-8">
-            <div className="mx-auto flex max-w-3xl flex-col gap-16 p-4 md:max-w-5xl xl:max-w-7xl">
+            <div className="mx-8 flex max-w-7xl flex-col gap-16 p-4 lg:mx-auto">
                 <div className="flex flex-col items-start justify-between gap-16 md:flex-row md:items-center">
                     <LeftFooterSection />
 

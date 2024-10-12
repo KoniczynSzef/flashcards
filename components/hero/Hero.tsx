@@ -12,7 +12,7 @@ export const Hero: React.FC<Props> = () => {
             data-testid="hero-section"
         >
             <h1
-                className="bg-gradient-to-b from-white to-violet-300 bg-clip-text py-1 text-6xl font-bold leading-tight text-transparent"
+                className="bg-gradient-to-b from-white to-violet-300 bg-clip-text py-1 text-5xl font-bold leading-tight text-transparent lg:text-6xl"
                 data-testid="hero-title"
             >
                 Flashcards that make language learning effortless.

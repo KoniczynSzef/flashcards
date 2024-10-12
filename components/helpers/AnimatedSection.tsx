@@ -20,6 +20,7 @@ export const AnimatedSection: React.FC<Props> = (props) => {
             transition={{ duration: 0.3, delay: 0.25 }}
             ref={sectionRef}
             className="w-full"
+            id={props.sectionId}
         >
             {props.children}
         </motion.section>

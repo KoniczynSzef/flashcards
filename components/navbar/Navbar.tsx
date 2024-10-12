@@ -1,18 +1,18 @@
 import Link from "next/link";
 import React from "react";
-import { AuthenticationState } from "../auth/AuthState";
+import { AuthState } from "../auth/AuthState";
 import Image from "next/image";
 
 import Logo from "../../assets/images/langcards.png";
 import { LinksNavigation } from "./LinksNavigation";
-import { MobileSheet } from "./MobileSheet";
+import { MobileSheet } from "./mobile-sheet/MobileSheet";
 
 type Props = object & {};
 
 export const Navbar: React.FC<Props> = () => {
     return (
         <nav
-            className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl"
+            className="mx-8 flex items-center justify-between py-8 xl:mx-auto xl:max-w-7xl"
             data-testid="navbar"
         >
             <Link
@@ -28,8 +28,8 @@ export const Navbar: React.FC<Props> = () => {
                 />
             </Link>
 
-            <LinksNavigation className="hidden lg:flex" />
-            <AuthenticationState className="ml-auto hidden lg:block" />
+            <LinksNavigation className="mx-auto hidden xl:flex" />
+            <AuthState className="ml-auto hidden xl:block" />
 
             <MobileSheet />
         </nav>
