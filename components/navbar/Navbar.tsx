@@ -12,7 +12,7 @@ type Props = object & {};
 export const Navbar: React.FC<Props> = () => {
     return (
         <nav
-            className="mx-8 flex items-center justify-between py-8 lg:mx-auto lg:max-w-7xl"
+            className="mx-8 flex items-center justify-between py-8 xl:mx-auto xl:max-w-7xl"
             data-testid="navbar"
         >
             <Link
@@ -28,8 +28,8 @@ export const Navbar: React.FC<Props> = () => {
                 />
             </Link>
 
-            <LinksNavigation className="hidden lg:flex" />
-            <AuthenticationState className="ml-auto hidden lg:block" />
+            <LinksNavigation className="mx-auto hidden xl:flex" />
+            <AuthenticationState className="ml-auto hidden xl:block" />
 
             <MobileSheet />
         </nav>

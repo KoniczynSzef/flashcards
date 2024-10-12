@@ -13,7 +13,7 @@ export const MobileSheet: React.FC<Props> = () => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <div className="block lg:hidden">
+        <div className="block xl:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                     <Button size={"icon"}>
