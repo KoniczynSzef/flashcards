@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { AuthenticationState } from "../auth/AuthState";
+import { AuthState } from "../auth/AuthState";
 import Image from "next/image";
 
 import Logo from "../../assets/images/langcards.png";
 import { LinksNavigation } from "./LinksNavigation";
-import { MobileSheet } from "./MobileSheet";
+import { MobileSheet } from "./mobile-sheet/MobileSheet";
 
 type Props = object & {};
 
@@ -29,7 +29,7 @@ export const Navbar: React.FC<Props> = () => {
             </Link>
 
             <LinksNavigation className="mx-auto hidden xl:flex" />
-            <AuthenticationState className="ml-auto hidden xl:block" />
+            <AuthState className="ml-auto hidden xl:block" />
 
             <MobileSheet />
         </nav>

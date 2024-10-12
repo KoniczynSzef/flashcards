@@ -17,7 +17,9 @@ import { useClerk } from "@clerk/nextjs";
 import { UserDropdownItem } from "./UserDropdownItem";
 import { useSignOutWithToast } from "@/hooks/auth/use-sign-out-with-toast";
 
-type Props = object & {};
+type Props = object & {
+    handleCloseSheet?: () => void;
+};
 
 export const UserDropdown: React.FC<Props> = () => {
     const { user, authState } = useAppAuthStore();
