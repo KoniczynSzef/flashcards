@@ -1,8 +1,7 @@
+import { UserFromDb } from "../database/user-from-db";
 import { AuthState } from "./auth-state";
 
 import { ClerkUser } from "./clerk-user";
-import { UserTable } from "@/database/schema/schema";
-import { InferSelectModel } from "drizzle-orm";
 
 export type AppAuth = {
     isAuthenticating: boolean;
@@ -10,11 +9,11 @@ export type AppAuth = {
     authState: AuthState;
     clerkUser: ClerkUser;
 
-    user: InferSelectModel<typeof UserTable> | null;
+    user: UserFromDb | null;
 
     setIsAuthenticating: (isAuthenticating: boolean) => void;
 
     setAuthState: (authState: AuthState) => void;
     setClerkUser: (clerkUser: ClerkUser) => void;
-    setUser: (user: InferSelectModel<typeof UserTable> | null) => void;
+    setUser: (user: UserFromDb | null) => void;
 };
