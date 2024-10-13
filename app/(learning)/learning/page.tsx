@@ -18,7 +18,7 @@ const page: React.FC<Props> = async () => {
         return <NotLoggedIn />;
     }
 
-    return <div>Learning page</div>;
+    return <div>Learning</div>;
 };
 
 export default page;

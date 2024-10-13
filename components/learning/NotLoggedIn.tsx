@@ -8,7 +8,7 @@ type Props = object & {};
 export const NotLoggedIn: React.FC<Props> = () => {
     return (
         <AnimatedSection sectionId="not-logged-in" sectionIndex={0}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center text-center">
                 <h1 className="text-5xl font-bold">You are not logged in</h1>
                 <p className="paragraph mt-4">
                     Please log in to access this page.
