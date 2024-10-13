@@ -1,13 +1,23 @@
+"use client";
+
 import React from "react";
 import { Separator } from "../ui/separator";
 import { FOOTER_LINKS } from "@/assets/footer/footer-links";
 import { LeftFooterSection } from "./LeftFooterSection";
 import { FooterNavigationList } from "./FooterNavigationList";
+import { usePathname } from "next/navigation";
 
 type Props = object & {};
 
 export const Footer: React.FC<Props> = () => {
     const date = new Date();
+
+    const pathname = usePathname();
+
+    if (pathname === "/learning") {
+        return null;
+    }
+
     return (
         <footer className="bg-black py-8">
             <div className="mx-8 flex max-w-7xl flex-col gap-16 p-4 lg:mx-auto">

@@ -26,7 +26,7 @@ export default function RootLayout({
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
                     <Navbar />
-                    <main className="mx-auto max-w-7xl px-8 py-16 lg:px-24 lg:py-24">
+                    <main>
                         <PageAnimation>{children}</PageAnimation>
                     </main>
                     <Footer />

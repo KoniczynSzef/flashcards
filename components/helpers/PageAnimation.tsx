@@ -10,6 +10,11 @@ type Props = object & {
 
 export const PageAnimation: React.FC<Props> = (props) => {
     const pathname = usePathname();
+
+    if (pathname === "/learning") {
+        return props.children;
+    }
+
     let path: string = "";
 
     // * This null check is necessary for the test to run and pass
@@ -26,7 +31,7 @@ export const PageAnimation: React.FC<Props> = (props) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             data-testid={`${path}-page`}
-            className="flex flex-col items-center justify-center gap-24 lg:gap-48"
+            className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-24 px-8 py-16 lg:gap-48 lg:px-24 lg:py-24"
         >
             {props.children}
         </motion.div>

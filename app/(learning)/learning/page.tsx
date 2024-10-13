@@ -1,4 +1,5 @@
 import { getUserByClerkId } from "@/api/user/get-user-by-clerk-id";
+import { AnimatedSection } from "@/components/helpers/AnimatedSection";
 import { NotLoggedIn } from "@/components/learning/NotLoggedIn";
 import { currentUser } from "@clerk/nextjs/server";
 import React from "react";
@@ -18,7 +19,11 @@ const page: React.FC<Props> = async () => {
         return <NotLoggedIn />;
     }
 
-    return <div>Learning</div>;
+    return (
+        <AnimatedSection sectionId="learning" sectionIndex={0}>
+            <h1>Welcome, {user.username}!</h1>
+        </AnimatedSection>
+    );
 };
 
 export default page;

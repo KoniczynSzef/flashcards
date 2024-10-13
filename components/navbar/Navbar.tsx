@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { AuthState } from "../auth/AuthState";
@@ -6,10 +8,17 @@ import Image from "next/image";
 import Logo from "../../assets/images/langcards.png";
 import { LinksNavigation } from "./LinksNavigation";
 import { MobileSheet } from "./mobile-sheet/MobileSheet";
+import { usePathname } from "next/navigation";
 
 type Props = object & {};
 
 export const Navbar: React.FC<Props> = () => {
+    const pathname = usePathname();
+
+    if (pathname === "/learning") {
+        return null;
+    }
+
     return (
         <nav
             className="mx-8 flex items-center justify-between py-8 xl:mx-auto xl:max-w-7xl"
