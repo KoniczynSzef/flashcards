@@ -1,8 +1,8 @@
 import { db } from "@/database";
 import { FlashcardTable } from "@/database/schema/schema";
-import { Flashcard } from "@/types/database/flashcard";
+import { FlashcardInsert } from "@/types/database/flashcard";
 
-export async function createNewFlashcard(flashcard: Flashcard) {
+export async function createNewFlashcard(flashcard: FlashcardInsert) {
     const newFlashcard = await db
         .insert(FlashcardTable)
         .values(flashcard)
