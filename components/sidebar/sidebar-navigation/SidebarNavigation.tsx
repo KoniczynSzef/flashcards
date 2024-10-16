@@ -13,7 +13,7 @@ export const SidebarNavigation: React.FC<Props> = () => {
                         {group.label}
                     </span>
 
-                    <div className="mt-4 flex flex-col gap-1">
+                    <div className="mt-4 flex flex-col gap-2">
                         {group.items.map((item, itemIndex) => (
                             <SidebarNavigationLink
                                 key={itemIndex}

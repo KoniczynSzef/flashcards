@@ -66,7 +66,7 @@ export const PricingPlan: React.FC<Props> = (props) => {
                     </Link>
                 ) : (
                     <Button
-                        className="w-full focus:ring"
+                        className="w-full"
                         variant="outline"
                         onClick={handleClick}
                     >

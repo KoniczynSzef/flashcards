@@ -10,7 +10,6 @@ type Props = object & {
 
 export const SidebarNavigationLink: React.FC<Props> = (props) => {
     const pathname = usePathname();
-    // TODO: Implement active link state and focus state
 
     return (
         <Link
