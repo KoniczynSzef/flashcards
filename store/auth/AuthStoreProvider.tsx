@@ -4,11 +4,11 @@ import React from "react";
 import { toast } from "sonner";
 
 import { useClerk } from "@clerk/nextjs";
-import { AppUser } from "@/types/auth/app-user";
 import { useAuthenticateUser } from "@/hooks/auth/use-authenticate-user";
+import { UserFromDb } from "@/types/database/user-from-db";
 
 type Props = object & {
-    user: AppUser;
+    user: UserFromDb;
     children: React.ReactNode;
 };
 
@@ -20,9 +20,12 @@ export const AuthStoreProvider: React.FC<Props> = (props) => {
         const messageStatus = authenticateUser();
 
         if (messageStatus === "Authenticated successfully") {
-            toast.success("Authenticated successfully", { duration: 1500 });
+            toast.success(
+                `Authenticated successfully as ${props.user.username}`,
+                { duration: 1500 },
+            );
         }
-    }, [authenticateUser]);
+    }, [authenticateUser, props.user]);
 
     return props.children;
 };

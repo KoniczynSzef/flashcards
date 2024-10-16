@@ -8,6 +8,7 @@ export const useAppAuthStore = create<AppAuth>((set) => ({
     user: null,
 
     setAuthState: (authState) => set({ authState }),
+
     setIsAuthenticating: (isAuthenticating) => set({ isAuthenticating }),
 
     setClerkUser: (clerkUser) => set({ clerkUser }),
