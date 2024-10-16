@@ -9,7 +9,7 @@ export const SidebarNavigation: React.FC<Props> = () => {
         <nav className="flex w-full flex-col items-center gap-8">
             {SIDEBAR_NAVIGATION.groups.map((group, groupIndex) => (
                 <div key={groupIndex} className="w-full">
-                    <span className="mb-4 ml-4 font-semibold text-muted-foreground">
+                    <span className="mb-4 px-4 text-sm font-semibold text-muted-foreground">
                         {group.label}
                     </span>
 

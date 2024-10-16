@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import { SidebarNavigationItem } from "@/types/sidebar/sidebar-navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 type Props = object & {
@@ -7,15 +9,24 @@ type Props = object & {
 };
 
 export const SidebarNavigationLink: React.FC<Props> = (props) => {
+    const pathname = usePathname();
     // TODO: Implement active link state and focus state
 
     return (
         <Link
             href={props.item.href}
-            className="flex w-full items-center gap-2 rounded bg-none px-4 py-2 text-gray-400 transition duration-300 hover:bg-accent"
+            className="link__with__button w-full rounded"
         >
-            {props.item.icon}
-            <span>{props.item.title}</span>
+            <Button
+                tabIndex={-1}
+                variant={
+                    pathname.startsWith(props.item.href) ? "secondary" : "ghost"
+                }
+                className="flex w-full items-center justify-start gap-4 py-5"
+            >
+                {props.item.icon}
+                <span>{props.item.title}</span>
+            </Button>
         </Link>
     );
 };
