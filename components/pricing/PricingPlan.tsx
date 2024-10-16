@@ -58,7 +58,7 @@ export const PricingPlan: React.FC<Props> = (props) => {
                 {isFree ? (
                     <Link
                         href={"/learning"}
-                        className="link__with__button mt-auto w-full focus:ring-white"
+                        className="link__with__button mt-auto w-full focus:ring"
                     >
                         <Button className="w-full" tabIndex={-1}>
                             Start learning
@@ -66,7 +66,7 @@ export const PricingPlan: React.FC<Props> = (props) => {
                     </Link>
                 ) : (
                     <Button
-                        className="w-full"
+                        className="w-full focus:ring"
                         variant="outline"
                         onClick={handleClick}
                     >

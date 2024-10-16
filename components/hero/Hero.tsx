@@ -25,7 +25,7 @@ export const Hero: React.FC<Props> = () => {
 
             <Link
                 href={"/learning"}
-                className="group mt-4 flex w-min rounded transition duration-300 focus:outline-none focus:ring focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
+                className="link__with__button group mt-4 flex w-min rounded transition duration-300 focus:outline-none focus:ring"
                 data-testid="hero-link-cta"
             >
                 <Button

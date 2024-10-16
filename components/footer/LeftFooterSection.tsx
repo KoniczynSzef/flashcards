@@ -15,7 +15,7 @@ export const LeftFooterSection: React.FC<Props> = () => {
                 Made with ❤️ by{" "}
                 <Link
                     href={"https://github.com/koniczynszef"}
-                    className="rounded text-indigo-300 transition-all duration-300 hover:text-indigo-200 focus:px-4 focus:py-2 focus:outline-none focus:ring focus:ring-slate-700"
+                    className="rounded text-indigo-300 transition-all duration-300 hover:text-indigo-200 focus:px-4 focus:py-2 focus:outline-none focus:ring"
                 >
                     Koniczyn
                 </Link>

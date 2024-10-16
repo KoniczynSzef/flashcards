@@ -18,7 +18,7 @@ export const FooterNavigationList: React.FC<Props> = (props) => {
                 <li key={link.title} className="flex">
                     <Link
                         href={link.href}
-                        className="group self-start rounded px-4 py-2 text-indigo-300 transition duration-300 focus:outline-none focus:ring focus:ring-slate-700"
+                        className="group self-start rounded px-4 py-2 text-indigo-300 transition duration-300 focus:outline-none focus:ring"
                     >
                         {link.title}
                         <div

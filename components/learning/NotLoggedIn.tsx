@@ -16,7 +16,7 @@ export const NotLoggedIn: React.FC<Props> = () => {
 
                 <Link
                     href={"/sign-in"}
-                    className="link__with__button my-16 focus:ring-white"
+                    className="link__with__button my-16 focus:ring"
                 >
                     <Button tabIndex={-1} role="link">
                         Log in
