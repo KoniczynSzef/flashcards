@@ -8,7 +8,7 @@ import { useAuthenticateUser } from "@/hooks/auth/use-authenticate-user";
 import { UserFromDb } from "@/types/database/user-from-db";
 
 type Props = object & {
-    user: UserFromDb;
+    user: UserFromDb | null;
     children: React.ReactNode;
 };
 
@@ -21,7 +21,7 @@ export const AuthStoreProvider: React.FC<Props> = (props) => {
 
         if (messageStatus === "Authenticated successfully") {
             toast.success(
-                `Authenticated successfully as ${props.user.username}`,
+                `Authenticated successfully as ${props.user?.username}`,
                 { duration: 1500 },
             );
         }
