@@ -9,6 +9,8 @@ import { PageAnimation } from "@/components/helpers/PageAnimation";
 import { Toaster } from "@/components/ui/sonner";
 import { Footer } from "@/components/footer/Footer";
 
+import NextTopLoader from "nextjs-toploader";
+
 export const metadata: Metadata = {
     title: "LangCards",
     description: "Learn languages with flashcards",
@@ -25,10 +27,13 @@ export default function RootLayout({
         <Providers>
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
+                    <NextTopLoader />
                     <Navbar />
+
                     <main>
                         <PageAnimation>{children}</PageAnimation>
                     </main>
+
                     <Footer />
                     <Toaster richColors />
                 </body>
