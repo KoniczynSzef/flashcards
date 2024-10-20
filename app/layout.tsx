@@ -27,7 +27,7 @@ export default function RootLayout({
         <Providers>
             <html lang="en" className="dark">
                 <body className={`${inter.className}`}>
-                    <NextTopLoader />
+                    <NextTopLoader showSpinner={false} color="#6366f1" />
                     <Navbar />
 
                     <main>
