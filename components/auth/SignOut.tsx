@@ -14,7 +14,7 @@ export const SignOut: React.FC<Props> = (props) => {
     return (
         <SignOutButton>
             <Button variant={"destructive"} onClick={signOutWithToast}>
-                Sign Out
+                Sign out
             </Button>
         </SignOutButton>
     );

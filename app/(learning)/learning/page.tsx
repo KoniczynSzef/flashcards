@@ -1,19 +1,15 @@
 import { getUserByClerkId } from "@/api/user/get-user-by-clerk-id";
 import { AnimatedSection } from "@/components/helpers/AnimatedSection";
 import { NotLoggedIn } from "@/components/learning/NotLoggedIn";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
 type Props = object & {};
 
 const page: React.FC<Props> = async () => {
-    const clerkUser = await currentUser();
+    const { userId } = auth();
 
-    if (!clerkUser) {
-        return <NotLoggedIn />;
-    }
-
-    const user = await getUserByClerkId(clerkUser.id);
+    const user = await getUserByClerkId(userId);
 
     if (!user) {
         return <NotLoggedIn />;
