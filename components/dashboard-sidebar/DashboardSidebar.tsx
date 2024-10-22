@@ -7,11 +7,11 @@ import { PanelTop } from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
-    SidebarFooter,
     SidebarGroup,
     SidebarHeader,
 } from "../ui/sidebar";
 import { usePathname } from "next/navigation";
+import { DashboardSidebarFooter } from "./DashboardSidebarFooter";
 
 type Props = object & {};
 
@@ -37,7 +37,7 @@ export const DashboardSidebar: React.FC<Props> = () => {
                 <SidebarGroup />
                 <SidebarGroup />
             </SidebarContent>
-            <SidebarFooter />
+            <DashboardSidebarFooter />
         </Sidebar>
     );
 };

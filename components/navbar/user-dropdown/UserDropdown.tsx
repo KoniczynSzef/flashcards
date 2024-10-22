@@ -13,7 +13,6 @@ import {
 import { useAppAuthStore } from "@/store/auth/app-auth-store";
 import { BookOpen, ChevronDown, LogOut, Settings, User } from "lucide-react";
 
-import { useClerk } from "@clerk/nextjs";
 import { UserDropdownItem } from "./UserDropdownItem";
 import { useSignOutWithToast } from "@/hooks/auth/use-sign-out-with-toast";
 
@@ -23,9 +22,8 @@ type Props = object & {
 
 export const UserDropdown: React.FC<Props> = () => {
     const { user, authState } = useAppAuthStore();
-    const { signOut } = useClerk();
 
-    const signOutWithToast = useSignOutWithToast(signOut);
+    const signOutWithToast = useSignOutWithToast({ redirectUrl: "/" });
 
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
