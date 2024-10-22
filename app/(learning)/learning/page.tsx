@@ -20,8 +20,12 @@ const page: React.FC<Props> = async () => {
     }
 
     return (
-        <AnimatedSection sectionId="learning" sectionIndex={0}>
-            <h1>Welcome, {user.username}!</h1>
+        <AnimatedSection
+            sectionId="learning"
+            sectionIndex={0}
+            className="flex flex-col py-24"
+        >
+            <h1 className="mx-auto bg-gray-600">Welcome, {user.username}!</h1>
         </AnimatedSection>
     );
 };

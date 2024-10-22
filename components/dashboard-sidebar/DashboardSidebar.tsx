@@ -23,7 +23,7 @@ export const DashboardSidebar: React.FC<Props> = () => {
     }
 
     return (
-        <Sidebar className="p-8">
+        <Sidebar>
             <SidebarHeader>
                 <Link
                     href={"/"}

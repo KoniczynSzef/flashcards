@@ -2,12 +2,14 @@
 
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-type Props = object & {
-    children: React.ReactNode;
-    sectionId: string;
-    sectionIndex: number;
-};
+type Props = object &
+    React.HTMLAttributes<HTMLDivElement> & {
+        children: React.ReactNode;
+        sectionId: string;
+        sectionIndex: number;
+    };
 
 export const AnimatedSection: React.FC<Props> = (props) => {
     const sectionRef = React.useRef<HTMLDivElement>(null);
@@ -19,7 +21,7 @@ export const AnimatedSection: React.FC<Props> = (props) => {
             animate={isVisible && { opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.25 }}
             ref={sectionRef}
-            className="w-full"
+            className={cn("w-full", props.className)}
             id={props.sectionId}
         >
             {props.children}

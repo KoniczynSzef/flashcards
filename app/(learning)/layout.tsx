@@ -1,5 +1,6 @@
 import { DashboardSidebar } from "@/components/dashboard-sidebar/DashboardSidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { DashboardSidebarTrigger } from "@/components/dashboard-sidebar/DashboardSidebarTrigger";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
 
 type Props = object & {
@@ -8,16 +9,14 @@ type Props = object & {
 
 const layout: React.FC<Props> = (props) => {
     return (
-        <div className="flex items-start">
-            <SidebarProvider>
+        <SidebarProvider>
+            <div className="flex w-full items-start">
                 <DashboardSidebar />
-                <SidebarTrigger className="m-8" />
-            </SidebarProvider>
+                <DashboardSidebarTrigger />
 
-            <div className="mx-auto mr-auto w-full bg-red-400 py-24">
                 {props.children}
             </div>
-        </div>
+        </SidebarProvider>
     );
 };
 
