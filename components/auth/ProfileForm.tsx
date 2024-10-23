@@ -25,8 +25,8 @@ import { useAppAuthStore } from "@/store/auth/app-auth-store";
 import { updateUser as updateUserAction } from "@/api/user/update-user";
 import { toast } from "sonner";
 import { useAction } from "next-safe-action/hooks";
-import RotatingLoader from "../loading/RotatingLoader";
 import { useRouter } from "next/navigation";
+import { CustomLoader } from "../loading/Loader";
 
 type Props = object & React.HTMLAttributes<HTMLFormElement> & {};
 
@@ -62,8 +62,16 @@ export const ProfileForm: React.FC<Props> = (props) => {
     }, [clerkUser, form, user]);
 
     async function handleSubmitForm(data: ProfileFormSchema) {
+        if (!clerkUser) {
+            toast.error("User not found");
+            return;
+        }
+
         try {
-            await updateUser(data);
+            await updateUser({
+                ...data,
+                clerkId: clerkUser.id,
+            });
             toast.success("Profile updated successfully");
 
             await new Promise((resolve) => setTimeout(resolve, 200));
@@ -152,14 +160,7 @@ export const ProfileForm: React.FC<Props> = (props) => {
                 />
 
                 <Button type="submit">
-                    {isPending ? (
-                        <RotatingLoader
-                            containerClassName="size-6"
-                            dotClassName="size-2"
-                        />
-                    ) : (
-                        "Update Profile"
-                    )}
+                    {isPending ? <CustomLoader /> : "Update Profile"}
                 </Button>
             </form>
         </Form>

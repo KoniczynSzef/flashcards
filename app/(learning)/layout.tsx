@@ -20,7 +20,7 @@ const layout: React.FC<Props> = async (props) => {
     const user = await getUserByClerkId(userId);
 
     if (!user) {
-        return redirect("/profile/settings");
+        return redirect("/settings");
     }
 
     return (

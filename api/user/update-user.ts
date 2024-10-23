@@ -5,8 +5,14 @@ import { UserTable } from "@/database/schema/schema";
 import { actionClient } from "@/lib/safe-action";
 import { profileFormSchema } from "@/schema/profile-form/schema";
 
+import { z } from "zod";
+
+const profileFormSchemaWithClerkId = profileFormSchema.merge(
+    z.object({ clerkId: z.string() }),
+);
+
 export const updateUser = actionClient
-    .schema(profileFormSchema)
+    .schema(profileFormSchemaWithClerkId)
     .action(async ({ parsedInput: data }) => {
         const user = await db
             .update(UserTable)
@@ -14,6 +20,7 @@ export const updateUser = actionClient
                 username: data.username,
                 bioDescription: data.bioDescription,
                 email: data.email,
+                clerkId: data.clerkId,
             })
             .returning();
 
