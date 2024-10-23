@@ -8,6 +8,7 @@ import {
     Sidebar,
     SidebarContent,
     SidebarGroup,
+    SidebarGroupLabel,
     SidebarHeader,
 } from "../ui/sidebar";
 import { usePathname } from "next/navigation";
@@ -34,7 +35,9 @@ export const DashboardSidebar: React.FC<Props> = () => {
                 </Link>
             </SidebarHeader>
             <SidebarContent>
-                <SidebarGroup />
+                <SidebarGroup>
+                    <SidebarGroupLabel></SidebarGroupLabel>
+                </SidebarGroup>
                 <SidebarGroup />
             </SidebarContent>
             <DashboardSidebarFooter />

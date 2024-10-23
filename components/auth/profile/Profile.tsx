@@ -13,8 +13,6 @@ type Props = object & {};
 export const Profile: React.FC<Props> = () => {
     const { authState, user } = useAppAuthStore();
 
-    console.log(user);
-
     if (authState === "guest") {
         return <AuthLinks />;
     }
