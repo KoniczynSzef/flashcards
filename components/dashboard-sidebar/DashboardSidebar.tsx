@@ -2,17 +2,12 @@
 
 import React from "react";
 
-import Link from "next/link";
 import { PanelTop } from "lucide-react";
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarGroup,
-    SidebarGroupLabel,
-    SidebarHeader,
-} from "../ui/sidebar";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Sidebar, SidebarContent, SidebarHeader } from "../ui/sidebar";
 import { DashboardSidebarFooter } from "./DashboardSidebarFooter";
+import { SidebarNavigation } from "./sidebar-navigation/SidebarNavigation";
 
 type Props = object & {};
 
@@ -35,10 +30,7 @@ export const DashboardSidebar: React.FC<Props> = () => {
                 </Link>
             </SidebarHeader>
             <SidebarContent>
-                <SidebarGroup>
-                    <SidebarGroupLabel></SidebarGroupLabel>
-                </SidebarGroup>
-                <SidebarGroup />
+                <SidebarNavigation />
             </SidebarContent>
             <DashboardSidebarFooter />
         </Sidebar>
